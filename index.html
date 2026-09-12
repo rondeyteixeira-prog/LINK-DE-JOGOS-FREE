@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINK DE TODOS OS JOGOS</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#0d0d0d;
+  color:#fff;
+  min-height:100vh;
+}
+
+.container{
+  width:100%;
+  max-width:480px;
+  margin:auto;
+  padding:20px 16px;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  margin-bottom:25px;
+  padding-top:10px;
+}
+
+.header h1{
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:1px;
+  line-height:1.2;
+}
+
+.header h1 span{
+  color:#1e90ff;
+}
+
+.header p{
+  color:#aaa;
+  font-size:14px;
+  margin-top:8px;
+}
+
+/* ===== CARD GERAL ===== */
+.card{
+  background:#1a1a1a;
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:18px;
+}
+
+.card-title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.card-info{
+  color:#999;
+  font-size:13px;
+  margin-bottom:16px;
+  line-height:1.4;
+}
+
+/* ===== BOTÃO AZUL ===== */
+.btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#1e90ff;
+  color:white;
+  text-align:center;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:hover{
+  background:#0d7de0;
+}
+
+.btn:disabled{
+  background:#444;
+  color:#888;
+  cursor:not-allowed;
+}
+
+/* ===== BOTÃO TIKTOK ===== */
+.btn-tiktok{
+  background:#fe2c55;
+}
+
+.btn-tiktok:hover{
+  background:#e0254b;
+}
+
+/* ===== CARD DESTAQUE ===== */
+.destaque{
+  background:linear-gradient(135deg,#0a3d8f,#1e90ff);
+  border-radius:16px;
+  padding:30px 20px;
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.destaque h2{
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:1px;
+  line-height:1.2;
+}
+
+/* ===== TIMER ===== */
+.timer{
+  text-align:center;
+  color:#aaa;
+  font-size:14px;
+  margin:14px 0;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.icon{
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- ==================== INÍCIO ==================== -->
+  <div id="inicio">
+    <div class="header">
+      <h1>LINK DE <span>TODOS OS</span><br>JOGOS</h1>
+      <p>Links de jogos em um só lugar 🎮</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">🎮</span> Jogos disponíveis
+      </div>
+      <div class="card-info">
+        Aguarde o anúncio para continuar.
+      </div>
+
+      <div class="timer" id="timer">Aguarde 8 segundos...</div>
+
+      <button class="btn" id="continuar" disabled>
+        AGUARDE...
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ==================== TIKTOK ==================== -->
+  <div class="hidden" id="tiktok">
+    <div class="header">
+      <h1>LINK DE <span>TODOS OS</span><br>JOGOS</h1>
+      <p>Links de jogos em um só lugar 🎮</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">@hx7.edits4</div>
+      <div class="card-info">TikTok sem bugs</div>
+
+      <a class="btn btn-tiktok" href="https://www.tiktok.com/@hx7.edits4" target="_blank" rel="noopener noreferrer">
+        ABRIR TIKTOK
+      </a>
+
+      <button class="btn" id="continuarTiktok" onclick="iniciarEspera()" style="margin-top:12px;">
+        CONTINUAR
+      </button>
+
+      <div class="timer hidden" id="espera">Aguarde 3 segundos...</div>
+
+      <button class="btn hidden" id="aderirJogos" onclick="mostrarJogos()" style="margin-top:12px;">
+        ADERIR AOS JOGOS
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ==================== JOGOS ==================== -->
+  <div class="hidden" id="jogos">
+
+    <div class="header">
+      <h1>LINK DE <span>TODOS OS</span><br>JOGOS</h1>
+      <p>Links de jogos em um só lugar 🎮</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="icon">🎮</span> Jogos disponíveis
+      </div>
+      <div class="card-info">
+        Agora podes acessar os links dos jogos.
+      </div>
+    </div>
+
+    <!-- ========== FREE FIRE 2017 ========== -->
+    <div class="destaque">
+      <h2>FREE FIRE<br>2017</h2>
+    </div>
+    <div class="card">
+      <div class="card-title">Free Fire 2017</div>
+      <div class="card-info">Versão antiga do Free Fire</div>
+      <a class="btn" href="https://biplap3.hubsocial.chat/6a555557de242/" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== FREE FIRE 2022 ========== -->
+    <div class="destaque" style="background:linear-gradient(135deg,#1a1a1a,#333);">
+      <h2 style="color:#1e90ff;">FREE FIRE<br>2022</h2>
+    </div>
+    <div class="card">
+      <div class="card-title">Free Fire 2022</div>
+      <div class="card-info">Free Fire 2022</div>
+      <a class="btn" href="#" onclick="alert('Link de download não configurado.'); return false;">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== FREE FIRE MAX ========== -->
+    <div class="card">
+      <div class="card-title">Free Fire MAX</div>
+      <div class="card-info">Free Fire MAX APK</div>
+      <a class="btn" href="https://www.mediafire.com/file/p28l0jow9eu7ofz/Free+Fire+MAX.apk/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== DREAM LEAGUE ========== -->
+    <div class="card">
+      <div class="card-title">Dream League Soccer</div>
+      <div class="card-info">Dream League Soccer 2026 APK</div>
+      <a class="btn" href="https://dream-league-soccer-2020.softonic.com.br" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== CALL OF DUTY ========== -->
+    <div class="card">
+      <div class="card-title">Call of Duty</div>
+      <div class="card-info">CALL OF DUTY MOBILE</div>
+      <a class="btn" href="https://s.callofdutymobile.com" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== GTA ========== -->
+    <div class="card">
+      <div class="card-title">GTA San Andreas</div>
+      <div class="card-info">Grand Theft Auto: San Andreas</div>
+      <a class="btn" href="https://grand-theft-auto-san-andreas.softonic.com.br" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== FORTNITE ========== -->
+    <div class="card">
+      <div class="card-title">FORTNITE</div>
+      <div class="card-info">Fortnite | Jogo Grátis Entre Plataformas</div>
+      <a class="btn" href="https://www.fortnite.com" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== FARLIGHT 84 ========== -->
+    <div class="card">
+      <div class="card-title">FARLIGHT 84</div>
+      <div class="card-info">Farlight84</div>
+      <a class="btn" href="https://farlight84.farlightgames.com" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== CARX ========== -->
+    <div class="card">
+      <div class="card-title">CarX Drift Racing</div>
+      <div class="card-info">CarX Drift Racing para Android</div>
+      <a class="btn" href="https://carx-technologies-carx-drift-racing.br.uptodown.com" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== FC MOBILE ========== -->
+    <div class="card">
+      <div class="card-title">FC MOBILE</div>
+      <div class="card-info">EA SPORTS FC™ Mobile</div>
+      <a class="btn" href="https://redeem.fcm.ea.com" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== SITE RESGATAR CODIGUIN ========== -->
+    <div class="card">
+      <div class="card-title">SITE DE RESGATAR CODIGUIN</div>
+      <div class="card-info">Rewards Redemption Site - Garena (Free Fire)</div>
+      <a class="btn" href="https://reward.ff.garena.com" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== PAINEL POWER\~MODS ========== -->
+    <div class="card">
+      <div class="card-title">PAINEL POWER\~MODS</div>
+      <div class="card-info">POWER\~MODS V29 PROXY MINI AMÉRICA MODZ OFC</div>
+      <a class="btn" href="https://www.mediafire.com/file/ejr6yj9384p4ddo/POWER\~MODS\~V29+PROXY+MINI+AMÉRICA+MODZ+OFC.apk/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== PANEL SADX ========== -->
+    <div class="card">
+      <div class="card-title">PANEL SADX</div>
+      <div class="card-info">Painel SADX</div>
+      <a class="btn" href="https://www.mediafire.com/file/izwkqi7mqdez9pg/PANEL+SADX.apk/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== FFH4X ========== -->
+    <div class="card">
+      <div class="card-title">FFH4X VIP</div>
+      <div class="card-info">FFH4X VIP V24</div>
+      <a class="btn" href="https://www.mediafire.com/file/ohst4fwf4zg6x4n/FFH4X+VIP+V24.apk/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== DRIP ========== -->
+    <div class="card">
+      <div class="card-title">DRIP CLIENT</div>
+      <div class="card-info">dripclient-wire-v1.1.0</div>
+      <a class="btn" href="https://www.mediafire.com/file/viqsgxb5c41pgnm/dripclient-wire-v1.1.0.apk/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== HOLOGRAMA VIP ========== -->
+    <div class="card">
+      <div class="card-title">HOLOGRAMA VIP ⚙️</div>
+      <div class="card-info">HOLOGRAMA VIP + ARMAS + CUERPO + WALLHACK + GLOO (FF MAX)</div>
+      <a class="btn" href="https://www.mediafire.com/file/lufy1igozi0x8hx/ERROR+400+SOLUCIONADO✅+HOLOGRAMA+VIP+ARMAS+Y+CUERPO+COMPLETO+++WALLHACK+GLOO+FF+MAX+💛💜.7z/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+    <!-- ========== GHOST MOD V26 ========== -->
+    <div class="card">
+      <div class="card-title">GHOST MOD V26 ⚙️</div>
+      <div class="card-info">GHOST MOD V26</div>
+      <a class="btn" href="https://www.mediafire.com/file/544lpjhtvvxl2te/GHOST+MOD+V26,.apk/file" target="_blank" rel="noopener noreferrer">
+        🔗 ACESSAR LINK
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+let segundos = 8;
+
+let contador = setInterval(function(){
+  segundos--;
+  document.getElementById("timer").textContent = "Aguarde " + segundos + " segundos...";
+
+  if(segundos <= 0){
+    clearInterval(contador);
+    let botao = document.getElementById("continuar");
+    botao.disabled = false;
+    botao.textContent = "CONTINUAR";
+
+    botao.onclick = function(){
+      document.getElementById("inicio").classList.add("hidden");
+      document.getElementById("tiktok").classList.remove("hidden");
+    };
+
+    document.getElementById("timer").textContent = "Pronto.";
+  }
+},1000);
+
+
+function iniciarEspera(){
+  document.getElementById("continuarTiktok").classList.add("hidden");
+
+  let espera = document.getElementById("espera");
+  espera.classList.remove("hidden");
+
+  let segundos = 3;
+  espera.textContent = "Aguarde " + segundos + " segundos...";
+
+  let contador3 = setInterval(function(){
+    segundos--;
+    espera.textContent = "Aguarde " + segundos + " segundos...";
+
+    if(segundos <= 0){
+      clearInterval(contador3);
+      espera.classList.add("hidden");
+      document.getElementById("aderirJogos").classList.remove("hidden");
+    }
+  },1000);
+}
+
+
+function mostrarJogos(){
+  document.getElementById("tiktok").classList.add("hidden");
+  document.getElementById("jogos").classList.remove("hidden");
+  window.scrollTo({ top:0, behavior:"smooth" });
+}
+</script>
+
+</body>
+</html>

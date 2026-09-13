@@ -110,6 +110,15 @@ body{
   background:#e0254b;
 }
 
+/* ===== BOTÃO YOUTUBE ===== */
+.btn-youtube{
+  background:#ff0000;
+}
+
+.btn-youtube:hover{
+  background:#cc0000;
+}
+
 /* ===== CARD DESTAQUE ===== */
 .destaque{
   background:linear-gradient(135deg,#0a3d8f,#1e90ff);
@@ -192,6 +201,34 @@ body{
       </button>
 
       <div class="timer hidden" id="espera">Aguarde 3 segundos...</div>
+
+      <button class="btn hidden" id="irParaYoutube" onclick="mostrarYoutube()" style="margin-top:12px;">
+        PRÓXIMO PASSO
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ==================== YOUTUBE ==================== -->
+  <div class="hidden" id="youtube">
+    <div class="header">
+      <h1>LINK DE <span>TODOS OS</span><br>JOGOS</h1>
+      <p>Links de jogos em um só lugar 🎮</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📺 Yutaxtzin89</div>
+      <div class="card-info">Se inscreva no canal do YouTube</div>
+
+      <a class="btn btn-youtube" href="https://youtube.com/@yutaxtzin89?si=y51bh2QkzdE5IFY4" target="_blank" rel="noopener noreferrer">
+        ABRIR YOUTUBE
+      </a>
+
+      <button class="btn" id="continuarYoutube" onclick="iniciarEsperaYoutube()" style="margin-top:12px;">
+        CONTINUAR
+      </button>
+
+      <div class="timer hidden" id="esperaYoutube">Aguarde 3 segundos...</div>
 
       <button class="btn hidden" id="aderirJogos" onclick="mostrarJogos()" style="margin-top:12px;">
         ADERIR AOS JOGOS
@@ -322,11 +359,11 @@ body{
       </a>
     </div>
 
-    <!-- ========== PAINEL POWER\~MODS ========== -->
+    <!-- ========== PAINEL POWER~MODS ========== -->
     <div class="card">
-      <div class="card-title">PAINEL POWER\~MODS</div>
-      <div class="card-info">POWER\~MODS V29 PROXY MINI AMÉRICA MODZ OFC</div>
-      <a class="btn" href="https://www.mediafire.com/file/ejr6yj9384p4ddo/POWER\~MODS\~V29+PROXY+MINI+AMÉRICA+MODZ+OFC.apk/file" target="_blank" rel="noopener noreferrer">
+      <div class="card-title">PAINEL POWER~MODS</div>
+      <div class="card-info">POWER~MODS V29 PROXY MINI AMÉRICA MODZ OFC</div>
+      <a class="btn" href="https://www.mediafire.com/file/ejr6yj9384p4ddo/POWER~MODS~V29+PROXY+MINI+AMÉRICA+MODZ+OFC.apk/file" target="_blank" rel="noopener noreferrer">
         🔗 ACESSAR LINK
       </a>
     </div>
@@ -420,14 +457,40 @@ function iniciarEspera(){
     if(segundos <= 0){
       clearInterval(contador3);
       espera.classList.add("hidden");
+      document.getElementById("irParaYoutube").classList.remove("hidden");
+    }
+  },1000);
+}
+
+function mostrarYoutube(){
+  document.getElementById("tiktok").classList.add("hidden");
+  document.getElementById("youtube").classList.remove("hidden");
+  window.scrollTo({ top:0, behavior:"smooth" });
+}
+
+function iniciarEsperaYoutube(){
+  document.getElementById("continuarYoutube").classList.add("hidden");
+
+  let esperaYt = document.getElementById("esperaYoutube");
+  esperaYt.classList.remove("hidden");
+
+  let segundos = 3;
+  esperaYt.textContent = "Aguarde " + segundos + " segundos...";
+
+  let contadorYt = setInterval(function(){
+    segundos--;
+    esperaYt.textContent = "Aguarde " + segundos + " segundos...";
+
+    if(segundos <= 0){
+      clearInterval(contadorYt);
+      esperaYt.classList.add("hidden");
       document.getElementById("aderirJogos").classList.remove("hidden");
     }
   },1000);
 }
 
-
 function mostrarJogos(){
-  document.getElementById("tiktok").classList.add("hidden");
+  document.getElementById("youtube").classList.add("hidden");
   document.getElementById("jogos").classList.remove("hidden");
   window.scrollTo({ top:0, behavior:"smooth" });
 }
